@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 
 
-public class Ejercicio5 {
+public class Ejercicio6 {
 
 	public static void main(String[] args) {
 		try {
-			consulta5("Personas");
+			consulta6("Personas");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -19,12 +19,12 @@ public class Ejercicio5 {
 	}
 
 	/**
-	 * Listado de los nombres que comiencen por "C" y los apellidos por "A" ordenados por edad de mayor a menor
+	 * Media de edad de la muestra
 	 * 
 	 * @param nombreTabla
 	 * @throws SQLException
 	 */
-	public static void consulta5 (String nombreTabla) throws SQLException {
+	public static void consulta6 (String nombreTabla) throws SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
@@ -35,7 +35,7 @@ public class Ejercicio5 {
 			System.out.println("Nos hemos conectado a la Base de Datos");
 
 			// Paso 2: Preparamos la consulta SQL con la conexion
-			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla + " WHERE nombre LIKE 'C%' AND APELLIDO LIKE 'A%' ORDER BY edad DESC;");
+			stmt = conn.prepareStatement("SELECT AVG (edad) AS MediaDeEdad FROM "+ nombreTabla + ";");
 			
 			// Paso 3: Ejecutamos la consulta y almacenamos el resultado en un ResultSet.
 			ResultSet resultado = stmt.executeQuery();
@@ -43,15 +43,12 @@ public class Ejercicio5 {
 			// Paso 4: Iteramos por los resultados obtenidos de la consulta.
 			while (resultado.next()) {
 				System.out.println("=======================");
-				//System.out.println("ID: " + resultado.getInt("id")); // No hace falta en este ejercicio
-				System.out.println("Nombre: " + resultado.getString("nombre"));
-				System.out.println("Apellido: " + resultado.getString("apellido"));
-				//System.out.println("Edad: " + resultado.getInt("edad"));  // No hace falta en este ejercicio
+				System.out.println("Media de edad: " + resultado.getDouble("MediaDeEdad") + " años"); // O getInt() si lo prefieres sin decimales
 
 			}
 		
 			System.out.println("=======================");
-			System.out.println("Estos son todos los nombres que empiezan por 'C' y apellidos que empiezan por 'A' ordenados por edad de mayor a menor");
+			System.out.println("Esta es la media de edad de todas las personas");
 			
 		} catch (SQLException e) {
 			// Gestionamos los posibles errores que puedan surgir durante la ejecucion de la
