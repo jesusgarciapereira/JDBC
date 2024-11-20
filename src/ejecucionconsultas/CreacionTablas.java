@@ -6,16 +6,16 @@ import java.sql.Statement;
 
 import conexion.MiConexion;
 
-public class CreacionBBDD {
+public class CreacionTablas {
 	public static void main(String[] args) {
-		
-		String nombreBBDD = "PersonasJDBC";
 
+		String nombreTabla = "Personas";
+		
 		try {
-			if (crearBBDD(nombreBBDD)) {
-				System.out.println("Base de datos \"" + nombreBBDD + "\" creada");
+			if (crearTabla(nombreTabla)) {
+				System.out.println("Tabla \"" + nombreTabla + "\" creada");
 			} else {
-				System.out.println("No se ha podido crear la Base de datos \"" + nombreBBDD + "\"");
+				System.out.println("No se ha podido crear la Tabla \"" + nombreTabla + "\"");
 			}
 
 		} catch (SQLException e) {
@@ -23,7 +23,7 @@ public class CreacionBBDD {
 		}
 	}
 
-	public static boolean crearBBDD(String nombreBBDD) throws SQLException {
+	public static boolean crearTabla(String nombreTabla) throws SQLException {
 		Connection conn = null;
 		Statement stmt = null;
 
@@ -36,8 +36,12 @@ public class CreacionBBDD {
 
 			// Paso 2. Creamos un nuevo objeto con la conexión
 			stmt = conn.createStatement();
-			// Paso 3. Definimos la sentencia de crear una nueva base de datos
-			String sql = "CREATE DATABASE " + nombreBBDD;
+			// Paso 3. Definimos la sentencia de crear una nueva tabla
+			String sql = "CREATE TABLE " + nombreTabla + " (\r\n" 
+					+ "    id INT,\r\n" 
+					+ "    nombre VARCHAR(50),\r\n"
+					+ "    apellido VARCHAR(50),\r\n" + "    edad INT,\r\n" + "\r\n"
+					+ "	CONSTRAINT PK_Personas PRIMARY KEY (id)\r\n" + ");";
 			// Paso 4. Ejecutar la sentencia
 			stmt.executeUpdate(sql);
 
