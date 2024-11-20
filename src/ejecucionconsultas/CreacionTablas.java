@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import conexion.MiConexion;
+
 
 public class CreacionTablas {
 	public static void main(String[] args) {

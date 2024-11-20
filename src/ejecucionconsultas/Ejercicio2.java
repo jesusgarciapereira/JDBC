@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 
-public class Ejercicio1 {
+public class Ejercicio2 {
 
 	public static void main(String[] args) {
 		try {
@@ -29,7 +29,7 @@ public class Ejercicio1 {
 			System.out.println("Nos hemos conectado a la Base de Datos");
 
 			// Paso 2: Preparamos la consulta SQL con la conexion
-			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla +" ORDER BY edad;");
+			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla +" ORDER BY apellido;");
 			
 			// Paso 3: Ejecutamos la consulta y almacenamos el resultado en un ResultSet.
 			ResultSet resultado = stmt.executeQuery();
@@ -45,7 +45,7 @@ public class Ejercicio1 {
 			}
 		
 			System.out.println("=======================");
-			System.out.println("Estas son todas las personas ordenadas por la edad");
+			System.out.println("Estas son todas las personas ordenadas por el apellido");
 			
 		} catch (SQLException e) {
 			// Gestionamos los posibles errores que puedan surgir durante la ejecucion de la
