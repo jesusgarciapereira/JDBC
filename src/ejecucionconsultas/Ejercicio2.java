@@ -11,14 +11,20 @@ public class Ejercicio2 {
 
 	public static void main(String[] args) {
 		try {
-			consulta("Personas");
+			consulta2("Personas");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
 	}
 
-	public static void consulta(String nombreTabla) throws SQLException {
+	/**
+	 * Listado de los nombres y apellidos ordenados por apellido
+	 * 
+	 * @param nombreTabla
+	 * @throws SQLException
+	 */
+	public static void consulta2 (String nombreTabla) throws SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
@@ -37,15 +43,15 @@ public class Ejercicio2 {
 			// Paso 4: Iteramos por los resultados obtenidos de la consulta.
 			while (resultado.next()) {
 				System.out.println("=======================");
-				System.out.println("ID: " + resultado.getInt("id"));
+				//System.out.println("ID: " + resultado.getInt("id")); // No hace falta en este ejercicio
 				System.out.println("Nombre: " + resultado.getString("nombre"));
 				System.out.println("Apellido: " + resultado.getString("apellido"));
-				System.out.println("Edad: " + resultado.getInt("edad"));
+				//System.out.println("Edad: " + resultado.getInt("edad"));  // No hace falta en este ejercicio
 
 			}
 		
 			System.out.println("=======================");
-			System.out.println("Estas son todas las personas ordenadas por el apellido");
+			System.out.println("Estos son todos los nombres y apellidos de las personas ordenadas por el apellido");
 			
 		} catch (SQLException e) {
 			// Gestionamos los posibles errores que puedan surgir durante la ejecucion de la
