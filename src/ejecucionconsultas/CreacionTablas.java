@@ -33,6 +33,7 @@ public class CreacionTablas {
 
 			// Paso 1.Previamente habremos realizado la conexión
 			conn = MiConexion.miConexion();
+			System.out.println("Nos hemos conectado a la Base de Datos");
 
 			// Paso 2. Creamos un nuevo objeto con la conexión
 			stmt = conn.createStatement();
@@ -49,7 +50,7 @@ public class CreacionTablas {
 
 		} catch (SQLException se) {
 			// Gestionamos los posibles errores que puedan surgir durante la ejecucion de la
-			// insercion
+			// creacion
 			se.printStackTrace();
 		} catch (Exception e) {
 			// Gestionamos los posibles errores

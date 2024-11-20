@@ -45,7 +45,7 @@ public class CreacionBBDD {
 
 		} catch (SQLException se) {
 			// Gestionamos los posibles errores que puedan surgir durante la ejecucion de la
-			// insercion
+			// creacion
 			se.printStackTrace();
 		} catch (Exception e) {
 			// Gestionamos los posibles errores

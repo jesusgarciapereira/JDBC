@@ -33,6 +33,7 @@ public class InsercionDeDatosEnTabla {
 
 			// Paso 1.Previamente habremos realizado la conexión
 			conn = MiConexion.miConexion();
+			System.out.println("Nos hemos conectado a la Base de Datos");
 
 			// Paso 2. Creamos un nuevo objeto con la conexión
 			stmt = conn.createStatement();
@@ -254,6 +255,7 @@ public class InsercionDeDatosEnTabla {
 			// Gestionamos los posibles errores
 			e.printStackTrace();
 		} finally {
+			if(stmt!=null)
 			// Paso 5. Cerrar el objeto en uso y la conexión
 			stmt.close();
 			conn.close();
