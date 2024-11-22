@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 
 
-public class Ejercicio1 {
+public class ConsultaGeneral {
 
 	public static void main(String[] args) {
 		try {
-			consultaTabla("Personas");
+			consulta("Personas");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -19,12 +19,12 @@ public class Ejercicio1 {
 	}
 
 	/**
-	 * Consulta general de toda la tabla
+	 * Consulta general de la tabla
 	 * 
 	 * @param nombreTabla
 	 * @throws SQLException
 	 */
-	public static void consultaTabla(String nombreTabla) throws SQLException {
+	public static void consulta (String nombreTabla) throws SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
@@ -35,7 +35,7 @@ public class Ejercicio1 {
 			System.out.println("Nos hemos conectado a la Base de Datos");
 
 			// Paso 2: Preparamos la consulta SQL con la conexion
-			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla +" ORDER BY edad;");
+			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla);
 			
 			// Paso 3: Ejecutamos la consulta y almacenamos el resultado en un ResultSet.
 			ResultSet resultado = stmt.executeQuery();
@@ -47,11 +47,12 @@ public class Ejercicio1 {
 				System.out.println("Nombre: " + resultado.getString("nombre"));
 				System.out.println("Apellido: " + resultado.getString("apellido"));
 				System.out.println("Edad: " + resultado.getInt("edad"));
+				System.out.println("Laboral: " + resultado.getString("laboral")); 
 
 			}
 		
 			System.out.println("=======================");
-			System.out.println("Estas son todas las personas ordenadas por la edad");
+			System.out.println("Estas son todas las personas");
 			
 		} catch (SQLException e) {
 			// Gestionamos los posibles errores que puedan surgir durante la ejecucion de la

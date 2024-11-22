@@ -41,7 +41,8 @@ public class CreacionTablas {
 			String sql = "CREATE TABLE " + nombreTabla + " (\r\n" 
 					+ "    id INT,\r\n" 
 					+ "    nombre VARCHAR(50),\r\n"
-					+ "    apellido VARCHAR(50),\r\n" + "    edad INT,\r\n" + "\r\n"
+					+ "    apellido VARCHAR(50),\r\n" 
+					+ "    edad INT,\r\n" + "\r\n"
 					+ "	CONSTRAINT PK_Personas PRIMARY KEY (id)\r\n" + ");";
 			// Paso 4. Ejecutar la sentencia
 			stmt.executeUpdate(sql);
