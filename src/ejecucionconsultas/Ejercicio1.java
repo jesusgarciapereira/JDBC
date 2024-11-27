@@ -26,7 +26,7 @@ public class Ejercicio1 {
 	 */
 	public static void consultaTabla(String nombreTabla) throws SQLException {
 		Connection conn = null;
-		PreparedStatement stmt = null;
+		PreparedStatement stmt = null; // Tambien puedes usar Statement
 		
 
 		try {

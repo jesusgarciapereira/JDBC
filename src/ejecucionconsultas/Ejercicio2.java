@@ -26,7 +26,7 @@ public class Ejercicio2 {
 	 */
 	public static void consulta2 (String nombreTabla) throws SQLException {
 		Connection conn = null;
-		PreparedStatement stmt = null;
+		PreparedStatement stmt = null; // Tambien vale el Satatement
 		
 
 		try {
@@ -35,7 +35,7 @@ public class Ejercicio2 {
 			System.out.println("Nos hemos conectado a la Base de Datos");
 
 			// Paso 2: Preparamos la consulta SQL con la conexion
-			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla +" ORDER BY apellido;");
+			stmt = conn.prepareStatement("SELECT * FROM "+ nombreTabla +" ORDER BY apellido;"); // Procura no consumir muchos recursos
 			
 			// Paso 3: Ejecutamos la consulta y almacenamos el resultado en un ResultSet.
 			ResultSet resultado = stmt.executeQuery();

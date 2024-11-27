@@ -37,6 +37,8 @@ public class Ejercicio10 {
 			//Paso 2: Preparamos el objeto Statement
 		    stmt = conn.createStatement();
 
+		    // Los pasos 3 y 4 se pueden hacer en uno solo paso en MySQL con un enum
+		    
 		    // Paso 3: Modificacion de la tabla
 		    String sql = "ALTER TABLE " + nombreTabla + " ADD laboral VARCHAR(15)";
 		    stmt.executeUpdate(sql);
