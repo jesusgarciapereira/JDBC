@@ -18,7 +18,7 @@ public class MiConexion {
 	public static Connection miConexion() {
 		// Antes de la direccion, debes poner antes jdbc:mysql://
 		// El puerto es 3306
-		String url = "jdbc:mysql://dns11036.phdns11.es:3306/ad2425_jgarcia";
+		String url = "jdbc:mysql://dns11036.phdns11.es:3306/ad2425_jgarcia"; // /ad2425_jgarcia NO HACE FALTA
 		String usuario = "jgarcia";
 		String contrasennia = "12345";
 
